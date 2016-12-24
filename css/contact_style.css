@@ -1,0 +1,41 @@
+.header
+		{
+			font-family: 'Aref Ruqaa', serif;
+			font-weight:bold;
+			text-align:center;
+			
+			font-size:50px;
+		}
+		.description
+		{
+			font-family: 'Maven Pro', sans-serif;
+			text-align:center;
+		}
+		.btn
+		{
+			border-color:#f9f9f9;
+			border-radius:60px; 
+			height:80px; 
+			width:85px; 
+			padding:5px; 
+			margin:5px;
+			background-color:#f9f9f9;
+			box-shadow:1px 1px 1px #b3b3b3;
+		}
+		.fa
+		{
+			font-size:35px;
+			color:#b3b3b3;
+			margin-top:15px;
+			transition:color .5s ease-in-out;
+		}
+		.fa:hover
+		{
+			border-color:#ff4d4d;
+			color:#ff8080;
+		}
+		.glyphicon
+		{
+			font-size:25px;
+			color: #b3b3b3;
+		}

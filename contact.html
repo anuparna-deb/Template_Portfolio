@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Sara Doe</title>
+	 <link rel="icon" href="#" type="image/x-icon">
+    <!-- For mobile first-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- For bootstrap, css, js and handlebars -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/handlebars-v3.0.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- For Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet"> 
+	<!-- For Social Icons -->
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link href="css/main_style.css" rel="stylesheet">
+	<link href="css/contact_style.css" rel="stylesheet">
+</head>
+</head>
+<body>
+	<div class="container" id="content">
+	</div>
+	
+	<div class="container" id="footer">
+		<center>
+			<h5>2016 <span class="glyphicon glyphicon-copyright-mark"></span> Copyright. All rights reserved.</h5>
+			</center>
+	</div>
+	
+	<!-- navbar template -->
+	<script id="navbar-template" type="text/x-handlebars-template">
+		<nav class="nav navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="home.html"><h4>{{name}}</h4></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{{src_option1}}"><h4>{{option1}}</h4></a></li>
+						<li><a href="{{src_option2}}"><h4>{{option2}}</h4></a></li>
+						<li><a href="{{src_option3}}"><h4>{{option3}}</h4></a></li>
+						<li class="active_now"><a href="{{src_option4}}"><h4>{{option4}}</h4></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</script>
+	
+	<!-- contact template -->
+	<script id="contact-template" type="text/x-handlebars-template">
+		<br><br><br><br>
+		<br><br><br><br>
+		<div class="main_body">
+		<center>
+			<a target="_blank" href="{{google_src}}" class="btn btn-social btn-google-plus">
+				<span class="fa fa-google-plus"></span>
+			</a>
+			<a target="_blank" href="{{stack_src}}" class="btn btn-social btn-stack-overflow">
+				<span class="fa fa-stack-overflow"></span>
+			</a>
+			<a target="_blank" href="{{github_src}}" class="btn btn-social btn-github">
+				<span class="fa fa-github"></span> 
+			</a>
+			<a target="_blank" href="{{linkedin_src}}" class="btn btn-social btn-linkedin">	
+				<span class="fa fa-linkedin"></span>
+			</a>
+			<a target="_blank" href="{{codeforces_src}}" class="btn btn-social btn-code">
+				<span class="fa fa-code"></span>
+			</a>
+			<a target="_blank" href="{{codepen_src}}" class="btn btn-social btn-file-o">
+				<span class="fa fa-file-o"></span>
+			</a>
+		</center>
+		<br><br>
+			<h1 class="header">
+				{{contact_heading}}
+			</h1>
+			<br><br>
+			<h3 class="description">
+				{{contact_description}}
+			</h3>
+		<br><br>
+		<center>
+			<span class="glyphicon glyphicon-phone-alt"></span><br>
+			<h3 class="description">{{ph_no}}</h3><br>
+			<span class="glyphicon glyphicon-envelope"></span><br>  
+			<h3 class="description">{{mail}}</h3>
+		</center>
+		<br><br><br><br>
+		<br><br><br><br>
+		</div>
+	</script>
+</body>
+	<script type="text/javascript">
+		var nav_info = document.getElementById("navbar-template").innerHTML;
+		var template = Handlebars.compile(nav_info);
+		var nav_data = template({name: "SARA DOE", 
+								option1: "HOME", src_option1: "home.html", 
+								option2: "ABOUT", src_option2: "about.html",
+								option3: "WORK", src_option3: "work.html",
+								option4: "CONTACT", src_option4: "contact.html",
+								});
+		document.getElementById("content").innerHTML += nav_data;
+		
+		var contact_info = document.getElementById("contact-template").innerHTML;
+		var template = Handlebars.compile(contact_info);
+		var contact_data = template({contact_heading: "Get In Touch",
+									contact_description: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor inciddunt ut labore et dolore magna aliqua aliquip laboris nisi ut aliquip.",
+									google_src: "googleplus",
+									stack_src: "stackoverflow",
+									github_src: "github",
+									linkedin_src: "linkedin",
+									codeforces_src: "codeforces",
+									codepen_src: "codepen",
+									ph_no: "99-99-999-999",
+									mail: "abc@gmail.com"
+									});
+		document.getElementById("content").innerHTML += contact_data;
+	</script>
+</html>

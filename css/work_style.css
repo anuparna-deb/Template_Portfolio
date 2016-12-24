@@ -1,0 +1,76 @@
+h1
+		{
+			font-family: 'Aref Ruqaa', serif;
+			font-weight:bold;
+			font-size:50px;
+		}
+		img:hover
+		{
+			opacity:0.7;
+		}
+		img
+		{
+			box-shadow: 2px 2px 2px gray;
+		}
+		.outer2
+		{
+			width:100%;
+			height:500px;
+			background-color:#b3b3b3;
+			padding-top:20px;
+		}
+		.inner2
+		{
+			width:90%;
+			height:460px;
+			background-image:url("http://www.kenqaservices.com/wp-content/uploads/2014/02/projects.jpg");
+			margin-left:24px;
+			opacity:0.7;
+			padding-top:20px;
+		}
+		.inner_most2
+		{
+			height:420px;
+			width:90%;
+			border:5px solid white;
+			margin-left:20px;
+			padding-top:20px;
+		}
+		.header2
+		{
+			font-family: 'Aref Ruqaa', serif;
+			font-weight:bold;
+			text-align:center;
+			
+			font-size:50px;
+		}
+		.description
+		{
+			font-family: 'Maven Pro', sans-serif;
+			text-align:center;
+		}
+		.outer1
+		{
+			width:100%;
+			height:500px;
+			background-color:#b3b3b3;
+			margin-left:130px;
+			padding-top:20px;
+		}
+		.inner1
+		{
+			width:90%;
+			height:460px;
+			background-image:url("https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcToV56M0V2NMTKKiAn_6D9OlHazqhsPodgs7W1iFUw26bendIAD");
+			margin-left:24px;
+			opacity:0.7;
+			padding-top:20px;
+		}
+		.inner_most1
+		{
+			height:420px;
+			width:90%;
+			border:5px solid white;
+			margin-left:20px;
+			padding-top:20px;
+		}
