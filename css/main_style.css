@@ -1,0 +1,37 @@
+		body
+		{
+			background-image:url("../images/background.jpg");
+			background-repeat:none;
+			background-size:cover;
+		}
+		.active_now h4
+		{
+			color:white;
+		}
+		.navbar-header h4
+		{
+			color:gray;
+			font-weight:bold;
+		}
+		.navbar-header h4:hover
+		{
+			color:white;
+		}
+		ul h4
+		{
+			color:gray;
+			font-weight:bold;
+		}
+		ul h4:hover
+		{
+			color:white;
+		}
+		button
+		{
+			width:300px; 
+			height:50px; 
+			background-color:black; 
+			color:white; 
+			border:1px solid black;
+			font-size:20px;
+		}

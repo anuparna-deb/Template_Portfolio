@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Sara Doe</title>
+	 <link rel="icon" href="#" type="image/x-icon">
+    <!-- For mobile first-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- For bootstrap, css, js and handlebars -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/handlebars-v3.0.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- For Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet"> 
+	<link href="css/main_style.css" rel="stylesheet">
+	<link href="css/about_style.css" rel="stylesheet">
+	<style>
+		
+	</style>
+</head>
+</head>
+<body>
+	<div class="container" id="content">
+	</div>
+	
+	
+	<div class="container" id="footer">
+		<center>
+			<h5>2016 <span class="glyphicon glyphicon-copyright-mark"></span> Copyright. All rights reserved.</h5>
+			</center>
+	</div>
+	
+	<!-- navbar template -->
+	<script id="navbar-template" type="text/x-handlebars-template">
+		<nav class="nav navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="home.html"><h4>{{name}}</h4></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{{src_option1}}"><h4>{{option1}}</h4></a></li>
+						<li class="active_now"><a href="{{src_option2}}"><h4>{{option2}}</h4></a></li>
+						<li><a href="{{src_option3}}"><h4>{{option3}}</h4></a></li>
+						<li><a href="{{src_option4}}"><h4>{{option4}}</h4></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</script>
+	
+	<!-- Banner template -->
+	<script id="banner-template" type="text/x-handlebars-template">
+	<br><br><br><br>
+	<br><br><br><br>
+	<br><br>
+		</center>
+		<div class="banner">
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-3">
+					<div id="left">
+						<img src="{{skill_src}}" alt="" />
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div id="right">
+						<img src="{{award_src}}" alt="" />
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div id="center">
+						<img src="{{degree_src}}" alt="" />
+					</div>
+				</div>
+				<div class="col-md-1">
+				</div>
+			</div>
+		</div>
+		</center>
+		<br><br><br><br>
+		<br><br><br><br>
+	</script>
+	
+	<!-- About Me template -->
+	<script id="about-template" type="text/x-handlebars-template">
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<center>
+					<h1>{{About_heading}}.</h1>
+				</center>
+			</div>
+		</div>
+		<br><br><br><br>
+		<div class="main">
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-10">
+					{{#each description}}
+						<h3 class="description">
+						{{About_Description}}
+						</h3>
+						<br><br>
+					{{/each}}
+				</div>
+				<div class="col-md-1">
+				</div>
+			</div>
+			<br><br><br><br>
+			<div class="row">
+				<div class="col-md-6">
+					<h2 class="sub_heading">{{Educational_heading}} : </h2>
+					<h4 class="description" style="text-align:right">
+					{{#each education}}
+						<strong>{{Educational_subheading}} : </strong>
+						{{Educational_description}}<br>
+					{{/each}}
+					</h4>
+				</div>
+				<div class="col-md-6">
+					<h2 class="sub_heading">{{Technical_heading}} : </h2>
+					<h4 class="description" style="text-align:right">
+					{{#each technical}}
+						<strong>{{technical_subheading}} : </strong>
+						{{technical_description}}<br>
+					{{/each}}
+					</h4>
+				</div>
+			</div>
+			<br><br><br><br>
+			<div class="row">
+				<div class="col-md-1">
+				</div>
+				<div class="col-md-10">
+					<h2 class="sub_heading">{{Awards_heading}}</h2>
+					<h4 class="description">
+					{{#each awards}}
+						<strong>{{awards_subheading}} : </strong><br>
+						{{awards_description}}<br>
+					{{/each}}
+					</h4>
+				</div>
+				<div class="col-md-1">
+				</div>
+			</div>
+			<br><br><br><br>
+			<div class="button">
+			<center>
+				<a href="#"><button name="about">{{about_btn}}</button></a>
+			</center>
+			</div>
+			<br><br><br><br>
+		</div>
+		<br><br><br><br>
+	</script>
+	
+	
+</body>
+	<script type="text/javascript">
+		var nav_info = document.getElementById("navbar-template").innerHTML;
+		var template = Handlebars.compile(nav_info);
+		var nav_data = template({name: "SARA DOE", 
+								option1: "HOME", src_option1: "home.html", 
+								option2: "ABOUT", src_option2: "about.html",
+								option3: "WORK", src_option3: "work.html",
+								option4: "CONTACT", src_option4: "contact.html",
+								});
+		document.getElementById("content").innerHTML += nav_data;
+		
+		var banner_info = document.getElementById("banner-template").innerHTML;
+		var template = Handlebars.compile(banner_info);
+		var banner_data = template({skill_src: "https://malawi24.com/wp-content/uploads/2016/08/skills.jpg",
+									degree_src: "https://s3.amazonaws.com/eb-blog-bloguk/wp-content/uploads/shutterstock_270377375.jpg",
+									award_src: "http://www.smudailycampus.com/wp-content/uploads/2015/03/how-much-did-my-bachelors-degree-cost-1024x749.jpg"
+								   });
+		document.getElementById("content").innerHTML +=banner_data;
+		
+		var abt_info = document.getElementById("about-template").innerHTML;
+		var template = Handlebars.compile(abt_info);
+		var abt_data = template({ About_heading: "About Me",
+								description: [
+								{
+									About_Description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+								},
+								{
+									About_Description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+								}
+								],
+								Educational_heading: "Educational Qualifications ",
+								education: [
+								{
+									Educational_subheading:"Bachelor Of Technology, Computer Science (2017) : ",
+									Educational_description: "Shaheed Sukhdev College Of Bussiness Studies, 84.7%"
+								},
+								{
+									Educational_subheading:"AISSCE (2013) : ",
+									Educational_description: "Vivekanand School, Anand Vihar, 91.2%"
+								},
+								{
+									Educational_subheading:"AISSE (2011) : ",
+									Educational_description: "St. Thomas School, Sahibabad, 10 CGPA"
+								}
+								],
+								Technical_heading: "Technical Skills ",
+								technical: [
+								{
+									technical_subheading:"Programming Language : ",
+									technical_description:"C, C++ with STL, Java "
+								},
+								{
+									technical_subheading:"Web Development : ",
+									technical_description:"HTML, CSS, JavaScript, jQuery "
+								}
+								],
+								Awards_heading: "Awards and Achievements",
+								awards:[
+								{
+									awards_subheading:"Award 1",
+									awards_description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+								},
+								{
+									awards_subheading:"Award 2",
+									awards_description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur"
+								}
+								],
+								about_btn: "View Resume"
+								});
+			document.getElementById("content").innerHTML += abt_data;
+			
+	</script>
+</html>

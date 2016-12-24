@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Sara Doe</title>
+	 <link rel="icon" href="#" type="image/x-icon">
+    <!-- For mobile first-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- For bootstrap, css, js and handlebars -->
+	<script src="js/jquery-2.1.4.min.js"></script>
+	<script src="js/handlebars-v3.0.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<!-- For Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Aref+Ruqaa" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet"> 
+	<link href="css/main_style.css" rel="stylesheet">
+	<link href="css/work_style.css" rel="stylesheet">
+	<style>
+		
+	</style>
+</head>
+</head>
+<body>
+	<div class="container" id="content">
+	</div>
+	
+	<div class="container" id="footer">
+		<center>
+			<h5>2016 <span class="glyphicon glyphicon-copyright-mark"></span> Copyright. All rights reserved.</h5>
+			</center>
+	</div>
+	
+	<!-- navbar template -->
+	<script id="navbar-template" type="text/x-handlebars-template">
+		<nav class="nav navbar-inverse navbar-fixed-top">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="home.html"><h4>{{name}}</h4></a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="{{src_option1}}"><h4>{{option1}}</h4></a></li>
+						<li><a href="{{src_option2}}"><h4>{{option2}}</h4></a></li>
+						<li class="active_now"><a href="{{src_option3}}"><h4>{{option3}}</h4></a></li>
+						<li><a href="{{src_option4}}"><h4>{{option4}}</h4></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</script>
+	
+	<!-- Banner template -->
+	<script id="banner-template" type="text/x-handlebars-template">
+	<br><br><br><br>
+	<br><br><br><br>
+	<center>
+		<div class="banner">
+			<div class="row">
+				<div class="col-md-4">
+					 <center><img src="{{project1_src}}" class="img-circle" alt="Cinque Terre" width="300" height="300"></center>
+				</div>
+				<div class="col-md-4">
+					 <center><img src="{{project2_src}}" class="img-circle" alt="Cinque Terre" width="320" height="310"></center>
+				</div>
+				<div class="col-md-4">
+					 <center><img src="{{project3_src}}" class="img-circle" alt="Cinque Terre" width="300" height="300"></center>
+				</div>
+			</div>
+		</div>
+		<br><br><br><br>
+	</center>
+	</script>
+	
+	<!-- My Work template -->
+	<script id="work-template" type="text/x-handlebars-template">
+		<div class="row">
+			<div class="col-xs-12 col-md-12">
+				<center><h1>{{work_heading}}.</h1></center>
+			</div>
+		</div>
+		<br><br><br><br>
+		<div class="row">
+			<div class="col-xs-10 col-md-5">
+				<div class="outer2">
+					<div class="inner2">
+						<div class="inner_most2">
+							<h1 class="title"></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-10 col-md-7">
+				<h1 class="header2">
+					{{project_name1}}
+				</h1>
+				<h2 class="description">
+					{{project_description2}}
+				</h2>
+				<br><br>
+				<center>
+					<a href="{{project1_add}}"><button name="about">{{project_btn}}</button></a>
+				</center>
+			</div>
+		</div>
+		<br><br><br><br>
+		<div class="row" style="margin-top:100px;">
+			<div class="col-xs-10 col-md-6">
+				<h1 class="header2">
+					{{project_name2}}
+				</h1>
+				<h2 class="description">
+					{{project_description2}}
+				</h2>
+				<br><br>
+				<center>
+					<a href="{{project2_add}}"><button name="about">{{project_btn}}</button></a>
+				</center>
+			</div>
+			<div class="col-xs-10 col-md-5">
+				<div class="outer1">
+					<div class="inner1">
+						<div class="inner_most1">
+							<h1 class="title"></h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br><br><br><br>
+		<br><br><br><br>
+		<center>
+			<a href="{{resume_src}}"><button name="about">{{work_btn}}</button></a>
+		</center>
+		<br><br><br><br>
+		<br><br><br><br>
+	</script>
+	
+	
+</body>
+	<script type="text/javascript">
+		var nav_info = document.getElementById("navbar-template").innerHTML;
+		var template = Handlebars.compile(nav_info);
+		var nav_data = template({name: "SARA DOE", 
+								option1: "HOME", src_option1: "home.html", 
+								option2: "ABOUT", src_option2: "about.html",
+								option3: "WORK", src_option3: "work.html",
+								option4: "CONTACT", src_option4: "contact.html",
+								});
+		document.getElementById("content").innerHTML += nav_data;
+		
+		var banner_info = document.getElementById("banner-template").innerHTML;
+		var template = Handlebars.compile(banner_info);
+		/* the best three projects */
+		var banner_data = template({project1_src: "http://www.kenqaservices.com/wp-content/uploads/2014/02/projects.jpg",
+									project2_src: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcToV56M0V2NMTKKiAn_6D9OlHazqhsPodgs7W1iFUw26bendIAD",
+									project3_src: "http://thecriticalpath.info/wp-content/uploads/2010/10/zombie_project.png"
+									});
+		document.getElementById("content").innerHTML += banner_data;
+		
+		var work_info = document.getElementById("work-template").innerHTML;
+		var template = Handlebars.compile(work_info);
+		var work_data = template({work_heading: "My Work",
+								  project_name1: "Project 1",
+								  project_description1: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor inciddunt ut labore et dolore magna aliqua aliquip laboris nisi ut aliquip.",
+								  project1_add: "abc",
+								  project_name2: "Project 2",
+								  project_description2: "Lorem Ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor inciddunt ut labore et dolore magna aliqua aliquip laboris nisi ut aliquip.",
+								  project2_add: "abc",
+								  project_btn : "Learn More",
+								  work_btn: "View Resume",
+								  resume_src: "abc"
+								});
+		document.getElementById("content").innerHTML += work_data;
+	</script>
+</html>
